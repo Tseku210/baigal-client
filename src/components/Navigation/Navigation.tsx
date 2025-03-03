@@ -56,7 +56,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Navigation() {
   return (
-    <div className="flex items-center dark:border-b-2 sticky z-10 top-0 w-full bg-background/90 justify-center p-3 gap-5 shadow-sm backdrop-blur-lg">
+    <div className="flex items-center dark:border-b-2 sticky z-10 top-0 w-full bg-background/90 justify-center p-3 gap-5 shadow-xs backdrop-blur-lg">
       <Link href="/">
         <Image
           src="/logo/baigal-logo.png"
@@ -121,7 +121,7 @@ const ListItem = forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className,
           )}
           {...props}
