@@ -57,7 +57,7 @@ export const Products = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="flex h-full flex-nowrap items-center justify-center py-5 overflow-y-hidden overflow-x-auto gap-3 snap-x"
+              className="flex h-full flex-nowrap py-5 overflow-y-hidden overflow-x-auto gap-3 snap-x"
             >
               {item.products.map((product, i) => (
                 <motion.div
