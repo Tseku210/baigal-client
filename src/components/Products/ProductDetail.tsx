@@ -3,11 +3,9 @@
 import { ArrowLeftIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { motion } from "motion/react";
-import { useState } from "react";
-import { Product } from "@/types/product";
 
 const ProductDetail = ({ id }: { id: string }) => {
-  const [product, setProduct] = useState<Product | null>(null);
+  console.log(id);
 
   return (
     <div className="container mx-auto">
