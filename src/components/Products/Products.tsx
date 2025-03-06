@@ -1,55 +1,83 @@
-import { ProductsByCategory } from "@/types/product";
+"use client";
+
 import { ProductCard } from "./ProductCard";
 import { Button } from "../ui/button";
-import { ChevronRight, SearchIcon } from "lucide-react";
+import { CrownIcon, ShieldPlus } from "lucide-react";
+import { productsList } from "@/constants/productsData";
+import { motion } from "motion/react";
 
-const productsList: ProductsByCategory[] = [
-  {
-    category: "Бэстселлер",
-    products: [
-      {
-        slug: "uzem-7",
-        name: "Үзэм-7",
-        englishName: "Uzem-7",
-        type: "үрэл",
-        tag: ["зүрх", "ходоод"],
-        description: "нэг юманд уунаа",
-        price: 5000,
-      },
-    ],
-  },
-];
 export const Products = () => {
   return (
-    <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background">
-      <div className="flex flex-col mb-10 justify-center items-center gap-3">
-        <h2 className="text-4xl text-muted-foreground text-center">
+    <div className="container mx-auto ">
+      <motion.div
+        initial={{ opacity: 0, translateY: 50 }}
+        viewport={{ once: true, amount: 0.8 }}
+        whileInView={{ opacity: 1, translateY: 0 }}
+        className="flex flex-col mb-10 justify-center items-center gap-5 bg-radial-[at_50%_50%] from-primary/20 via-transparent to-transparent"
+      >
+        <h2 className="text-3xl text-muted-foreground text-center">
           Хэрэгтэй тангаа хайгаад үзээрэй
         </h2>
         <Button
           variant="default"
           effect="expandIcon"
           iconPlacement="right"
-          icon={SearchIcon}
+          icon={ShieldPlus}
           size="lg"
           className="w-fit rounded-full"
         >
           Бүх танг үзье
         </Button>
-      </div>
-      <div className="flex flex-wrap gap-3">
-        {Array.from({ length: 10 }).map((item, index) => (
-          <ProductCard key={index} />
-        ))}
+      </motion.div>
+      <div>
         {productsList.map((item) => (
           <div key={item.category} className="w-full">
             <div className="flex items-center">
-              <h2 className="flex-1 font-bold text-2xl">{item.category}</h2>
+              <h2 className="flex-1 font-bold text-2xl inline-flex items-center gap-2">
+                <span className="text-yellow-400">
+                  <CrownIcon />
+                </span>
+                {item.category}
+              </h2>
               <Button variant="link" className="transition-all">
                 Дэлгэрэнгүй
               </Button>
             </div>
-            <div className="overflow-x-auto"></div>
+            <motion.div
+              variants={{
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.07,
+                    delayChildren: 0.2,
+                  },
+                },
+                hidden: { opacity: 0, transition: { when: "afterChildren" } },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="flex h-full flex-nowrap items-center justify-center py-5 overflow-y-hidden overflow-x-auto gap-3 snap-x"
+            >
+              {item.products.map((product, i) => (
+                <motion.div
+                  key={product.slug + i}
+                  variants={{
+                    visible: {
+                      opacity: 1,
+                      translateY: 0,
+                    },
+                    hidden: {
+                      opacity: 0,
+                      translateY: 10,
+                    },
+                  }}
+                  className="snap-start h-full"
+                >
+                  <ProductCard product={product} />
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         ))}
       </div>

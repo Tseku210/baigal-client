@@ -20,7 +20,7 @@ export const DarkModeToggle = () => {
         }
       />
       <label
-        className="group relative inline-flex size-9 cursor-pointer items-center justify-center rounded-lg border border-input bg-background text-foreground shadow-xs shadow-black/5 transition-colors hover:bg-accent hover:text-accent-foreground peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-ring/70"
+        className="group relative inline-flex size-9 cursor-pointer items-center justify-center rounded-lg border border-input bg-transparent text-foreground transition-colors hover:bg-accent hover:text-accent-foreground hover:inset-shadow-xs peer-focus-visible:outline peer-focus-visible:outline-ring/70"
         htmlFor="theme-checkbox"
         aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
       >

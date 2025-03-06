@@ -10,51 +10,19 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import Image from "next/image";
-import { Button } from "../ui/button";
 import { DarkModeToggle } from "../DarkModeToggle";
-
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-];
+import { medNavigationData } from "@/constants/medicineNavigationData";
+import { motion } from "motion/react";
 
 export function Navigation() {
+  const [hoveredMedTypeImg, setHoveredMedTypeImg] = useState(
+    medNavigationData[0].img,
+  );
+
   return (
     <div className="flex items-center dark:border-b-2 sticky z-10 top-0 w-full bg-background/90 justify-center p-3 gap-5 shadow-xs backdrop-blur-lg">
       <Link href="/">
@@ -68,41 +36,52 @@ export function Navigation() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Бүтээгдэхүүн</NavigationMenuTrigger>
+            <NavigationMenuTrigger>Тан</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <ListItem href="/docs" title="Introduction">
-                  Re-usable components built using Radix UI and Tailwind CSS.
-                </ListItem>
-                <ListItem href="/docs/installation" title="Installation">
-                  How to install dependencies and structure your app.
-                </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Typography">
-                  Styles for headings, paragraphs, lists...etc
-                </ListItem>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Хаяг байршил</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {components.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href}
+                <div className="relative row-span-3 w-full hidden md:block">
+                  <motion.div
+                    key={hoveredMedTypeImg}
+                    initial={{ opacity: 0, translateY: 10 }}
+                    animate={{ opacity: 1, translateY: 0 }}
+                    exit={{ opacity: 0, translateY: 10 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="absolute inset-0"
                   >
-                    {component.description}
+                    <Image
+                      src={hoveredMedTypeImg}
+                      className="object-cover rounded-md"
+                      fill
+                      alt="Hovered Medicine Image"
+                    />
+                  </motion.div>
+                </div>
+                {medNavigationData.map((med, i) => (
+                  <ListItem
+                    key={i}
+                    href={med.routeTo}
+                    title={med.title}
+                    onMouseEnter={() => setHoveredMedTypeImg(med.img)}
+                  >
+                    {med.description}
                   </ListItem>
                 ))}
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Button variant="ghost">Холбоо барих</Button>
-            {/* <Link href="/contact" legacyBehavior passHref> */}
-            {/* </Link> */}
+            <Link href="/address" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Хаяг байршил
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/contact" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Холбоо барих
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

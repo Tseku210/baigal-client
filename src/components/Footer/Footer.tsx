@@ -22,14 +22,14 @@ export const Footer = () => {
   return (
     <motion.footer
       initial={{ opacity: 0, translateY: 50 }}
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: 0.9 }}
       whileInView={{ opacity: 1, translateY: 0 }}
-      className="relative border-t inset-shadow-xl bg-background rounded-3xl text-foreground transition-colors duration-300"
+      className="relative border-t inset-shadow-xl inset-shadow-sm bg-background rounded-3xl text-foreground transition-colors duration-300"
     >
-      <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
+      <div className="mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-primary to-foreground">
               Бидэнтэй нэгдээрэй
             </h2>
             <p className="mb-6 text-muted-foreground">

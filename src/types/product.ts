@@ -1,10 +1,11 @@
 export interface Product {
+  image: string;
   slug: string;
   name: string;
   englishName: string;
   description: string;
   type: "тан" | "талх" | "үрэл";
-  tag: string[];
+  tags: string[];
   price: number;
   discount?: number;
   discountPrice?: number;

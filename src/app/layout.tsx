@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { rubik, gip } from "@/lib/fonts";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
-import { ThemeProvider } from "@/provider/ThemeProvider";
 import { Footer } from "@/components/Footer";
 import { BuiltByTseku } from "@/components/BuiltBy";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: "Baigal",
@@ -22,18 +22,13 @@ export default function RootLayout({
       className={`${gip.variable} ${rubik.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="px-2">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className="flex flex-col min-h-screen">
+        <Providers>
           <Navigation />
-          <div className="my-10">{children}</div>
+          <div className="flex-1 my-10">{children}</div>
           <Footer />
           <BuiltByTseku />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
