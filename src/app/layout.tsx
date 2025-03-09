@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { rubik, gip } from "@/lib/fonts";
 import "./globals.css";
-import { Navigation } from "@/components/Navigation";
+import Navigation from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { BuiltByTseku } from "@/components/BuiltBy";
 import Providers from "./providers";
@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <Providers>
           <Navigation />
-          <div className="flex-1 my-10">{children}</div>
+          {children}
           <Footer />
           <BuiltByTseku />
         </Providers>

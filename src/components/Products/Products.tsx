@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { CrownIcon, ShieldPlus } from "lucide-react";
 import { productsList } from "@/constants/productsData";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 export const Products = () => {
   return (
@@ -18,16 +19,18 @@ export const Products = () => {
         <h2 className="text-3xl text-muted-foreground text-center">
           Хэрэгтэй тангаа хайгаад үзээрэй
         </h2>
-        <Button
-          variant="default"
-          effect="expandIcon"
-          iconPlacement="right"
-          icon={ShieldPlus}
-          size="lg"
-          className="w-fit rounded-full"
-        >
-          Бүх танг үзье
-        </Button>
+        <Link href="/products">
+          <Button
+            variant="default"
+            effect="expandIcon"
+            iconPlacement="right"
+            icon={ShieldPlus}
+            size="lg"
+            className="w-fit rounded-full"
+          >
+            Бүх танг үзье
+          </Button>
+        </Link>
       </motion.div>
       <div>
         {productsList.map((item) => (

@@ -8,7 +8,7 @@ const ProductDetail = ({ id }: { id: string }) => {
   console.log(id);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-5">
       <Button
         variant="ghost"
         icon={ArrowLeftIcon}

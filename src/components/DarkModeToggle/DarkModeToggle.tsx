@@ -27,6 +27,7 @@ export const DarkModeToggle = () => {
         <span className="in-[.group]:hidden">Light</span>
         <motion.div
           initial={{ translateY: -10, opacity: 0 }}
+          viewport={{ once: true }}
           animate={
             theme === "dark"
               ? { translateY: 0, opacity: 1 }

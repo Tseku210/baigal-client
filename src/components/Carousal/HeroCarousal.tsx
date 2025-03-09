@@ -2,13 +2,18 @@
 
 import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { Card, CardContent } from "../ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselDots,
 } from "../ui/carousel";
+import Image from "next/image";
+
+const coverImages: string[] = [
+  "/images/covers/baigal-cover.jpg",
+  "/images/covers/baigal-cover.jpg",
+];
 
 export const HeroCarousal = () => {
   const plugin = useRef(Autoplay({ delay: 5000 }));
@@ -16,14 +21,10 @@ export const HeroCarousal = () => {
   return (
     <Carousel plugins={[plugin.current]} className="w-full">
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
+        {coverImages.map((path, index) => (
           <CarouselItem key={index}>
-            <div className="p-1">
-              <Card className="border-none shadow-none">
-                <CardContent className="flex aspect-video items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
+            <div className="aspect-[16/9]">
+              <Image src={path} alt="cover img" fill className="object-cover" />
             </div>
           </CarouselItem>
         ))}

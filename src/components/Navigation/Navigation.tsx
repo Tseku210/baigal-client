@@ -12,13 +12,13 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { forwardRef, useState } from "react";
+import { forwardRef, memo, useState } from "react";
 import Image from "next/image";
 import { DarkModeToggle } from "../DarkModeToggle";
 import { medNavigationData } from "@/constants/medicineNavigationData";
 import { motion } from "motion/react";
 
-export function Navigation() {
+function Navigation() {
   const [hoveredMedTypeImg, setHoveredMedTypeImg] = useState(
     medNavigationData[0].img,
   );
@@ -115,3 +115,5 @@ const ListItem = forwardRef<
   );
 });
 ListItem.displayName = "ListItem";
+
+export default memo(Navigation);
