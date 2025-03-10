@@ -8,7 +8,7 @@ const ProductDetail = ({ id }: { id: string }) => {
   console.log(id);
 
   return (
-    <div className="container mx-auto mt-5">
+    <div className="container mx-auto mt-5 px-4 md:px-0">
       <Button
         variant="ghost"
         icon={ArrowLeftIcon}
@@ -17,7 +17,7 @@ const ProductDetail = ({ id }: { id: string }) => {
       >
         Буцах
       </Button>
-      <motion.div className="grid grid-cols-2 gap-3 mt-10">
+      <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-10">
         <div className="w-full h-96 bg-gray-300 rounded-xl flex items-center justify-center">
           эмний зураг
         </div>
@@ -27,7 +27,7 @@ const ProductDetail = ({ id }: { id: string }) => {
             <h2 className="text-sm font-light text-gray-500">Тайлбар</h2>
             <p className="text-2xl font-black text-primary">5000₮</p>
           </div>
-          <Button className="w-full font-bold" size="lg">
+          <Button className="w-full font-bold mt-5" size="lg">
             99887766 захиалах
           </Button>
         </div>

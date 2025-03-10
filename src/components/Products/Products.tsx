@@ -35,7 +35,7 @@ export const Products = () => {
       <div>
         {productsList.map((item) => (
           <div key={item.category} className="w-full">
-            <div className="flex items-center">
+            <div className="flex items-center px-4 md:px-0">
               <h2 className="flex-1 font-bold text-2xl inline-flex items-center gap-2">
                 <span className="text-yellow-400">
                   <CrownIcon />
@@ -60,7 +60,7 @@ export const Products = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="flex h-full flex-nowrap py-5 overflow-y-hidden overflow-x-auto gap-3 snap-x"
+              className="flex h-full flex-nowrap py-5 px-4 md:px-4 overflow-y-hidden overflow-x-auto gap-3 snap-x scroll-ps-4"
             >
               {item.products.map((product, i) => (
                 <motion.div

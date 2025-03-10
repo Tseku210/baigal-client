@@ -24,10 +24,10 @@ export const Footer = () => {
       initial={{ opacity: 0, translateY: 50 }}
       viewport={{ once: true }}
       whileInView={{ opacity: 1, translateY: 0 }}
-      className="relative mt-20 border-t inset-shadow-xl inset-shadow-sm bg-background rounded-3xl text-foreground transition-colors duration-300"
+      className="relative mt-10 md:mt-20 border-t inset-shadow-xl inset-shadow-sm bg-background rounded-3xl text-foreground transition-colors duration-300"
     >
-      <div className="mx-auto px-4 py-12 md:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto px-4 py-8 md:py-12 md:px-6 lg:px-8">
+        <div className="grid gap-5 md:gap-8 lg:gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-primary to-foreground">
               Бидэнтэй нэгдээрэй
