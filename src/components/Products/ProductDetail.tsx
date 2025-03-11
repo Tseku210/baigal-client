@@ -3,12 +3,16 @@
 import { ArrowLeftIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { motion } from "motion/react";
+import { RecommendedProducts } from "../RecommendedProducts";
+import { useUnderDevelopment } from "@/hooks/underDevelopment";
 
 const ProductDetail = ({ id }: { id: string }) => {
+  const { ref, overlay } = useUnderDevelopment();
   console.log(id);
 
   return (
-    <div className="container mx-auto mt-5 px-4 md:px-0">
+    <div ref={ref} className="container mx-auto mt-5 px-4 md:px-0">
+      {overlay}
       <Button
         variant="ghost"
         icon={ArrowLeftIcon}
@@ -32,6 +36,9 @@ const ProductDetail = ({ id }: { id: string }) => {
           </Button>
         </div>
       </motion.div>
+      <div className="mt-10">
+        <RecommendedProducts />
+      </div>
     </div>
   );
 };
