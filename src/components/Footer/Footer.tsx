@@ -24,7 +24,7 @@ export const Footer = () => {
       initial={{ opacity: 0, translateY: 50 }}
       viewport={{ once: true }}
       whileInView={{ opacity: 1, translateY: 0 }}
-      className="relative mt-10 md:mt-20 border-t inset-shadow-xl inset-shadow-sm bg-background rounded-3xl text-foreground transition-colors duration-300"
+      className="relative container mx-auto bg-transparent text-foreground transition-colors duration-300"
     >
       <div className="mx-auto px-4 py-8 md:py-12 md:px-6 lg:px-8">
         <div className="grid gap-5 md:gap-8 lg:gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -56,7 +56,7 @@ export const Footer = () => {
                 href="/products"
                 className="block transition-colors hover:text-primary"
               >
-                Бүтээгдэхүүн
+                Тан
               </Link>
               <Link
                 href="/address"
@@ -81,7 +81,10 @@ export const Footer = () => {
               </p>
               <p>Эмийн лавлах: (976) 78000088</p>
               <p>Утас: (976) 88086538, (976) 91911929</p>
-              <p>Мэйл: monintra.company@gmail.com</p>
+              <p>
+                Мэйл:{" "}
+                <span className="underline">monintra.company@gmail.com</span>
+              </p>
             </address>
           </div>
           <div className="relative">

@@ -22,12 +22,16 @@ export default function RootLayout({
       className={`${gip.variable} ${rubik.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen relative">
         <Providers>
           <Navigation />
-          {children}
-          <Footer />
-          <BuiltByTseku />
+          <div className="rounded-b-2xl md:rounded-b-4xl shadow-lg pb-20">
+            {children}
+          </div>
+          <div className="relative bg-transparent">
+            <Footer />
+            <BuiltByTseku />
+          </div>
         </Providers>
       </body>
     </html>
