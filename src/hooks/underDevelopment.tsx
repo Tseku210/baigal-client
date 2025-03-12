@@ -5,6 +5,7 @@ export function useUnderDevelopment() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     document.body.style.pointerEvents = "none";
     document.body.style.overflow = "hidden";
     document.body.style.userSelect = "none";
