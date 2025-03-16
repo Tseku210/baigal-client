@@ -9,14 +9,14 @@ import Link from "next/link";
 
 export const Products = () => {
   return (
-    <div className="container mx-auto ">
+    <div className="container mx-auto">
       <motion.div
         initial={{ opacity: 0, translateY: 50 }}
         viewport={{ once: true, amount: 0.8 }}
         whileInView={{ opacity: 1, translateY: 0 }}
         className="flex flex-col mb-10 justify-center items-center gap-5 bg-radial-[at_50%_50%] from-primary/20 via-transparent to-transparent"
       >
-        <h2 className="text-3xl text-muted-foreground text-center">
+        <h2 className="text-xl md:text-3xl text-muted-foreground text-center">
           Хэрэгтэй тангаа хайгаад үзээрэй
         </h2>
         <Link href="/products">
@@ -36,7 +36,7 @@ export const Products = () => {
         {productsList.map((item) => (
           <div key={item.category} className="w-full">
             <div className="flex items-center px-4 md:px-0">
-              <h2 className="flex-1 font-bold text-2xl inline-flex items-center gap-2">
+              <h2 className="flex-1 font-bold text-xl md:text-2xl inline-flex items-center gap-2">
                 <span className="text-yellow-400">
                   <CrownIcon />
                 </span>

@@ -23,7 +23,7 @@ export const HeroCarousal = () => {
       <CarouselContent>
         {coverImages.map((path, index) => (
           <CarouselItem key={index}>
-            <div className="aspect-[16/9]">
+            <div className="w-full max-w-[1400px] mx-auto aspect-[2/1] overflow-hidden">
               <Image src={path} alt="cover img" fill className="object-cover" />
             </div>
           </CarouselItem>

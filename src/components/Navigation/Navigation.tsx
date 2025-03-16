@@ -108,7 +108,7 @@ function Navigation() {
       {/* mobile menu */}
       <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
         <SheetTrigger asChild className="md:hidden">
-          <Button variant="outline">
+          <Button variant="outline" className="bg-transparent">
             <AnimatePresence mode="wait" initial={false}>
               {menuOpen ? (
                 <motion.div

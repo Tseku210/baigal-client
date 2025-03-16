@@ -3,7 +3,6 @@ import { rubik, gip } from "@/lib/fonts";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { BuiltByTseku } from "@/components/BuiltBy";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
@@ -25,13 +24,10 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen relative">
         <Providers>
           <Navigation />
-          <div className="rounded-b-2xl md:rounded-b-4xl shadow-lg pb-20">
+          <div className="rounded-b-2xl z-[1] bg-background md:rounded-b-4xl shadow-lg pb-20">
             {children}
           </div>
-          <div className="relative bg-transparent">
-            <Footer />
-            <BuiltByTseku />
-          </div>
+          <Footer />
         </Providers>
       </body>
     </html>
