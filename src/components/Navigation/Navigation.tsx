@@ -30,6 +30,8 @@ import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { usePathname } from "next/navigation";
 
+// TODO: implement async search bar https://async.rdsx.dev/
+
 function Navigation() {
   const [hoveredMedTypeImg, setHoveredMedTypeImg] = useState(
     medNavigationData[0].img,
